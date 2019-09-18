@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define		pb              push_back
+#define		PB              pop_back
+#define		nn              "\n"
+#define		all(p)          p.begin(),p.end()
+#define		zz(v)           v.size()
+#define		ss              ' '
+#define 	S(a)            scanf("%lld",&a)
+#define 	SS(a,b)         scanf("%lld %lld",&a,&b)
+#define 	SSS(a,b,c)      scanf("%lld %lld %lld",&a,&b,&c)
+#define		gcd(a,b)        __gcd(a,b)
+#define		lcm(a,b)        (a*b)/gcd(a,b)
+#define		pi              acos(-1.0)
+typedef		long long       ll;
+typedef		vector<ll>      vll;
+
+
+int main()
+{
+    ll n,i,p=0;
+    cin>>n;
+    string s;
+    cin>>s;
+    stack<char>sk;
+    for(i=0; i<s.size(); i++)
+    {
+        if(s[i]=='(')
+            sk.push('(');
+        else if(s[i]==')')
+        {
+            if(!sk.empty())
+                sk.pop(),p+=2;
+        }
+    }
+  //  cout<<p<<nn;
+   if(p==n) cout<<"Yes"<<nn;
+   else if(sk.size()==1&&p+2==n) cout<<"Yes"<<nn;
+    else cout<<"No"<<nn;
+
+    return 0;
+}
