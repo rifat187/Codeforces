@@ -1,0 +1,87 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef		long long       ll;
+typedef		vector<ll>      vll;
+#define		pb              push_back
+#define		PB              pop_back
+#define		nn              "\n"
+#define		all(p)          p.begin(),p.end()
+#define		zz(v)           (ll)v.size()
+//#define		ss              ' '
+#define 	S(a)            scanf("%lld",&a)
+#define 	SS(a,b)         scanf("%lld %lld",&a,&b)
+#define 	SSS(a,b,c)      scanf("%lld %lld %lld",&a,&b,&c)
+#define		gcd(a,b)        __gcd(a,b)
+#define		lcm(a,b)        (a*b)/gcd(a,b)
+#define		pi              acos(-1.0)
+
+int main()
+{
+    ll n,a,b,c,t,p;
+    cin>>t;
+    string s;
+    while(t--)
+    {
+        cin>>n;
+        cin>>a>>b>>c;
+        cin>>s;
+        p=0;
+      char ar[100010];
+      int k=0;
+        vll v;
+        for(int i=0;i<zz(s);i++)
+        {
+           if(s[i]=='R')
+           {
+               if(b>0)
+               {
+                   p++;
+                   ar[i]='P';
+                   b--;
+               }
+               else v.pb(i);
+           }
+           else if(s[i]=='P')
+           {
+               if(c>0)
+               {
+                   p++;
+                   ar[i]='S';
+                   c--;
+               }
+               else v.pb(i);
+           }
+           else if(s[i]=='S')
+           {
+               if(a>0)
+               {
+                   p++;
+                   ar[i]='R';
+                   a--;
+               }
+               else v.pb(i);
+           }
+        }
+        for(int i=0;i<zz(v);i++)
+        {
+            if(a) ar[v[i]]='R',a--;
+          else  if(b) ar[v[i]]='P',b--;
+          else  if(c) ar[v[i]]='S',c--;
+
+
+        }
+        if(p>=(n+1)/2)
+        {
+            cout<<"YES"<<nn;
+             for(int i=0;i<n;i++)
+                cout<<ar[i];
+             cout<<nn;
+        }
+        else cout<<"NO"<<nn;
+
+    }
+
+
+
+    return 0;
+}
