@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define		pb              push_back
+#define		PB              pop_back
+#define		nn              "\n"
+#define		all(p)          p.begin(),p.end()
+#define		zz(v)           v.size()
+#define		ss              ' '
+#define 	S(a)            scanf("%lld",&a)
+#define 	SS(a,b)         scanf("%lld %lld",&a,&b)
+#define 	SSS(a,b,c)      scanf("%lld %lld %lld",&a,&b,&c)
+#define		gcd(a,b)        __gcd(a,b)
+#define		lcm(a,b)        (a*b)/gcd(a,b)
+#define		pi              acos(-1.0)
+typedef		long long       ll;
+typedef		vector<ll>      vll;
+
+
+int main()
+{
+
+ ll n,m,a[100010],p,b[100010];
+ set<ll>st;
+ cin>>n>>m;
+ for(int i=0;i<n;i++)
+ {
+     cin>>a[i];
+
+ }
+ vll v;
+ for(int i=n-1;i>=0;i--)
+ {
+     st.insert(a[i]);
+     b[i]=zz(st);
+ }
+
+ for(int i=0;i<m;i++)
+ {
+
+     cin>>p;
+     v.pb(b[p-1]);
+ }
+ for(int i=0;i<zz(v);i++) cout<<v[i]<<nn;
+
+
+
+
+
+    return 0;
+}
